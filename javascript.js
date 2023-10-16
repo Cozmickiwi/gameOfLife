@@ -3,7 +3,7 @@ const startButton = document.querySelector('.startButton');
 let liveCells = [];
 let deadCells = [];
 function gridGen(){
-    for(i=1;i<=2500;i++){
+    for(i=1;i<=19600;i++){
         let pixel = document.createElement('div');
         pixel.setAttribute('class', 'pixel');
         pixel.setAttribute('id', i);
@@ -29,49 +29,49 @@ function game(curPixel){
     let nENeighbor;
     let sWNeighbor;
     let sENeighbor
-    if((Number(curPixel.id) - 1) % 50 != 0){
+    if((Number(curPixel.id) - 1) % 140 != 0){
         leftNeighbor = document.getElementById(`${Number(curPixel.id) - 1}`);
         if(leftNeighbor.style.backgroundColor == 'black'){
             neighborList.push('left');
         }
     }
-    if(Number(curPixel.id) % 50 != 0){
+    if(Number(curPixel.id) % 140 != 0){
         rightNeighbor = document.getElementById(`${Number(curPixel.id) + 1}`);
         if(rightNeighbor.style.backgroundColor == 'black'){
             neighborList.push('right');
         }
     }
-    if(Number(curPixel.id) > 50){
-        topNeighbor = document.getElementById(`${Number(curPixel.id) - 50}`);
+    if(Number(curPixel.id) > 140){
+        topNeighbor = document.getElementById(`${Number(curPixel.id) - 140}`);
         if(topNeighbor.style.backgroundColor == 'black'){
             neighborList.push('top');
         }
     }
-    if(Number(curPixel.id) <= 2450){
-        bottomNeighbor = document.getElementById(`${Number(curPixel.id) + 50}`);
+    if(Number(curPixel.id) <= 19460){
+        bottomNeighbor = document.getElementById(`${Number(curPixel.id) + 140}`);
         if(bottomNeighbor.style.backgroundColor == 'black'){
             neighborList.push('bottom');
         }
     }
-    if(Number(curPixel.id) > 50 && (Number(curPixel.id) - 1) % 50 != 0){
+    if(Number(curPixel.id) > 140 && (Number(curPixel.id) - 1) % 140 != 0){
         nWNeighbor = document.getElementById(`${Number(topNeighbor.id) - 1}`);
         if(nWNeighbor.style.backgroundColor == 'black'){
             neighborList.push('north west');
         }
     }
-    if(Number(curPixel.id) > 50 && Number(curPixel.id) % 50 != 0){
+    if(Number(curPixel.id) > 140 && Number(curPixel.id) % 140 != 0){
         nENeighbor = document.getElementById(`${Number(topNeighbor.id) + 1}`);
         if(nENeighbor.style.backgroundColor == 'black'){
             neighborList.push('north east');
         }
     }
-    if(Number(curPixel.id) <= 2450 && (Number(curPixel.id) - 1) % 50 != 0){
+    if(Number(curPixel.id) <= 19460 && (Number(curPixel.id) - 1) % 140 != 0){
         sWNeighbor = document.getElementById(`${Number(bottomNeighbor.id) - 1}`);
         if(sWNeighbor.style.backgroundColor == 'black'){
             neighborList.push('south west');
         }
     }
-    if(Number(curPixel.id) <= 2450 && Number(curPixel.id) % 50 != 0){
+    if(Number(curPixel.id) <= 19460 && Number(curPixel.id) % 140 != 0){
         sENeighbor = document.getElementById(`${Number(bottomNeighbor.id) + 1}`);
         if(sENeighbor.style.backgroundColor == 'black'){
             neighborList.push('south east');
@@ -91,7 +91,7 @@ function game(curPixel){
 }
 
 function gameLoop(){
-    for(i=1;i<=2500;i++){
+    for(i=1;i<=19600;i++){
         game((document.getElementById(i)));
     }
     cellChanger();
@@ -116,7 +116,7 @@ function cellChanger(){
 }
 
 startButton.addEventListener('click', () => {
-    setInterval(() => {gameLoop()}, 200);
+    setInterval(() => {gameLoop()}, 100);
 })
 
 gridGen();
