@@ -14,7 +14,9 @@ function gridGen(){
             }
             //console.log(pixel.id);
         })
-        
+        pixel.addEventListener('click', () =>{
+            pixel.style.backgroundColor = 'black';
+        })
         gameContainer.appendChild(pixel);
     }
 }
