@@ -17,8 +17,8 @@ body{
 }
 
 .pixel{
-    width: 5px;
-    height: 5px;
+    width: 14px;
+    height: 14px;
     outline: 1px dashed rgba(172, 168, 168, 0.472);
 }
 
