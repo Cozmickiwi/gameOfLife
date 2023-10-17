@@ -77,7 +77,8 @@ function game(curPixel){
             neighborList.push('south east');
         }
     }
-    if((neighborList.length < 2 && curPixel.style.backgroundColor == 'black') || (neighborList.length > 3 && curPixel.style.backgroundColor == 'black')){
+    if((neighborList.length < 2 && curPixel.style.backgroundColor == 'black') || 
+    (neighborList.length > 3 && curPixel.style.backgroundColor == 'black')){
         deadCells.push(curPixel);
         return('done');
     }
@@ -117,6 +118,21 @@ function cellChanger(){
 
 startButton.addEventListener('click', () => {
     setInterval(() => {gameLoop()}, 100);
+})
+
+function gliderGun(){
+    let gliderGunArr = [230, 278, 280, 318, 319, 326, 327, 340, 341, 367, 371,
+        376, 377, 390, 391, 406, 407, 416, 422, 426, 427, 456, 457, 466, 470,
+        472, 473, 478, 480, 516, 522, 530, 567, 571, 618, 619]
+    for(i=0;i<(gliderGunArr.length);i++){
+        document.getElementById(gliderGunArr[i]).style.backgroundColor = 'black';
+    }
+}
+
+let gliderGunButton = document.querySelector('.gliderGun');
+gliderGunButton.addEventListener('click', () =>{
+    gliderGunButton.style.visibility = 'hidden';
+    gliderGun();
 })
 
 gridGen();
